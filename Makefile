@@ -1,6 +1,6 @@
 # make en		Generate English documents
 # make cn		Generate Chinese documents
-# make clean	Remove generated documents
+# make clean		Remove generated documents
 # Happy making!
 
 .SILENT:
@@ -52,4 +52,4 @@ tex:
 .PHONY: all clean
 
 clean:
-	rm -f *.docx *.tex 
+	rm *.docx *.tex 
