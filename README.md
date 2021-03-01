@@ -41,3 +41,7 @@ make  # or `make all`
 # 删除生成的所有文件
 make clean
 ```
+
+## License
+
+[MIT License](LICENSE)
