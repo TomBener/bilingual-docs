@@ -1,4 +1,4 @@
-# make		Generate both English and Chinese documents
+# make			Generate both English and Chinese documents
 # make all		Generate both English and Chinese documents
 # make en		Generate English documents
 # make cn		Generate Chinese documents
