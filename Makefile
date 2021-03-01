@@ -1,7 +1,13 @@
+# make		Generate both English and Chinese documents
+# make all		Generate both English and Chinese documents
 # make en		Generate English documents
 # make cn		Generate Chinese documents
 # make clean		Remove generated documents
 # Happy making!
+
+
+.PHONY: all
+all: en cn
 
 .SILENT:
 # Generate English documents
@@ -44,7 +50,7 @@ cn: main.md
 	# Restore to the original status
 	sed -i '' -e 's/<!-- //g; s/ -->//g' $<
 
-.PHONY: all clean
+.PHONY: clean
 
 clean:
 	rm *.docx *.tex 
