@@ -44,11 +44,6 @@ cn: main.md
 	# Restore to the original status
 	sed -i '' -e 's/<!-- //g; s/ -->//g' $<
 
-docx:
-	clean $(DOCX)
-tex:
-	clean $(TEX)
-
 .PHONY: all clean
 
 clean:
