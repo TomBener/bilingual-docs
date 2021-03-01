@@ -17,11 +17,11 @@ There’s no reason to think the staircase doesn’t extend upwards forever.[^fn
 
 > We can’t conceive of what life higher on the staircase would be like, but absorbing the fact that higher stairs exist and trying to view ourselves from the perspective of one of those steps is the key mindset we need to be in for this exercise.
 
-[//]: # (This is the ordinary comment, from <https://stackoverflow.com/a/20885980>)
-
 > 我们无法想象楼梯上的生活会是什么样子，但吸收高楼梯存在的事实，并试图从这些阶梯中的一个角度来看待我们自己，这是我们在这个练习中需要的关键心态。
 
-[//]: # (这是写作时手动添加的注释，参考 <https://stackoverflow.com/a/20885980>)
+[//]: # (This is the ordinary comment, from <https://stackoverflow.com/a/20885980>)
+
+[//]: # (这是写作时手动添加的注释，来源于 <https://stackoverflow.com/a/20885980>)
 
 ## Heading 2
 

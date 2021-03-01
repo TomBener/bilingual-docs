@@ -30,7 +30,7 @@ en: main.md
 	# Generate `en.docx`
 	$(PAND) reference-section-title="References" $< -o en.docx
 	
-	# Generate `cn.tex`
+	# Generate `en.tex`
 	$(PANX) $< -o en.tex
 	# Compile LaTeX
 	
