@@ -1,5 +1,7 @@
 # 一份 Markdown，输出中英双语两份文件
 
+> 详细介绍：[中英双语写作，输出指定语言 - TomBen’s 博客](https://blog.retompi.com/post/input-bilingual-output-either-en-or-cn/) | [如何在 Markdown 中双语写作，输出英文或中文？- 少数派](https://sspai.com/post/65305)
+
 ## 使用
 
 **两种使用方式：**
