@@ -34,7 +34,7 @@ en: main.md
 	# Generate `en.tex`
 	$(PANX) $< -o en.tex
 
-	# Generate PDF via `en.tex` and `cn.tex`
+	# Generate PDF via `en.tex`
 	
 	# Restore to the original status
 	$(PERL) 's/(<!--- )(.*)( -->)/\2/g' $<
@@ -59,7 +59,7 @@ cn: main.md
 	# Generate `cn.tex`
 	$(PANX) $< -o cn.tex
 	
-	# Generate PDF via `en.tex` and `cn.tex`
+	# Generate PDF via `cn.tex`
 	
 	# Restore to the original status
 	$(PERL) 's/(<!--- )(.*)( -->)/\2/g' $<

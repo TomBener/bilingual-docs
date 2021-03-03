@@ -13,7 +13,7 @@ pandoc -C -N -M reference-section-title="参考文献" --bibliography ref.bib ma
 # Generate `cn.tex`
 pandoc --natbib --wrap=none main.md -o cn.tex
 
-# Compile `en.tex` and `cn.tex`
+# Compile `cn.tex`
 
 # Restore to the original status
 perl -CSD -Mutf8 -i -pe 's/(<!--- )(.*)( -->)/\2/g' main.md
