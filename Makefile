@@ -45,9 +45,6 @@ cn: main.md
 	# Comment all paragraphs
 	$(PERL) 's/(.*\S)/<!--- \1 -->/g' $<
 	
-	# Uncomment Chinese paragraphs
-	$(PERL) 's/<!--- (.*\p{Han}+.*) -->/\1/g' $<
-	
 	# Uncomment paragraphs which contain Chinese character
 	# and the generic HTML comment symbol
 	$(PERL) 's/<!--- (.*\p{Han}+.*) -->/\1/g; \
