@@ -9,6 +9,7 @@
 ## Happy making! 😃️
 
 
+# Perl with options
 PERL = perl -CSD -Mutf8 -i -pe
 # Pandoc with options for .docx output
 PAND = pandoc -C -N -M reference-section-title
@@ -25,14 +26,15 @@ en: main.md
 	$(PERL) 's/(.*\p{Han}+.*)/<!--- \1 -->/g' $<
 
 	# Uncomment commented paragraphs
-	$(PERL) 's/(<!--- <!-- )(.*)( --> -->)/<!-- \2 -->/g' main.md
+	$(PERL) 's/(<!--- <!-- )(.*)( --> -->)/<!-- \2 -->/g' $<
 	
 	# Generate `en.docx`
 	$(PAND)="References" $< -o en.docx
 	
 	# Generate `en.tex`
 	$(PANX) $< -o en.tex
-	# Compile LaTeX
+
+	# Generate PDF via `en.tex` and `cn.tex`
 	
 	# Restore to the original status
 	$(PERL) 's/(<!--- )(.*)( -->)/\2/g' $<
@@ -49,14 +51,15 @@ cn: main.md
 	# Uncomment paragraphs which contain Chinese character
 	# and the generic HTML comment symbol
 	$(PERL) 's/<!--- (.*\p{Han}+.*) -->/\1/g; \
-	s/(<!--- <!-- )(.*)( --> -->)/<!-- \2 -->/g' main.md
+	s/(<!--- <!-- )(.*)( --> -->)/<!-- \2 -->/g' $<
 
 	# Generate `cn.docx`
 	$(PAND)="参考文献" --bibliography ref.bib $< -o cn.docx
 	
 	# Generate `cn.tex`
 	$(PANX) $< -o cn.tex
-	# Compile LaTeX
+
+	# Generate PDF via `en.tex` and `cn.tex`
 	
 	# Restore to the original status
 	$(PERL) 's/(<!--- )(.*)( -->)/\2/g' $<
