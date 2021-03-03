@@ -19,9 +19,9 @@ There’s no reason to think the staircase doesn’t extend upwards forever.[^fn
 
 > 我们无法想象楼梯上的生活会是什么样子，但吸收高楼梯存在的事实，并试图从这些阶梯中的一个角度来看待我们自己，这是我们在这个练习中需要的关键心态。
 
-[//]: # (This is the ordinary comment, from <https://stackoverflow.com/a/20885980>)
+<!-- This is the ordinary comment, which can be added or removed with keyboard shortcuts `Cmd/Ctrl + /` in Visual Studio Code in a breeze. -->
 
-[//]: # (这是写作时手动添加的注释，来源于 <https://stackoverflow.com/a/20885980>)
+<!-- 这是写作时手动添加的注释，在 Visual Studio Code 中可以通过快捷键 `Cmd/Ctrl + /` 快速添加或移除。 -->
 
 ## Heading 2
 

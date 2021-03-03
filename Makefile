@@ -9,52 +9,57 @@
 ## Happy making! 😃️
 
 
-.PHONY: all
-all: en cn
-
-# Sed with options
-SED = sed -i '' -e 's/<!-- //g; s/ -->//g'
-# Perl with options
 PERL = perl -CSD -Mutf8 -i -pe
 # Pandoc with options for .docx output
-PAND = pandoc -C -N -M
+PAND = pandoc -C -N -M reference-section-title
 # Pandoc with options for .tex output
 PANX = pandoc --natbib --wrap=none
+
+.PHONY: all
+all: en cn
 
 .SILENT:
 # Generate English documents
 en: main.md
 	# Comment Chinese paragraphs
-	$(PERL) 's/(.*\p{Han}+.*)/<!-- \1 -->/g' $<
+	$(PERL) 's/(.*\p{Han}+.*)/<!--- \1 -->/g' $<
+
+	# Uncomment commented paragraphs
+	$(PERL) 's/(<!--- <!-- )(.*)( --> -->)/<!-- \2 -->/g' main.md
 	
 	# Generate `en.docx`
-	$(PAND) reference-section-title="References" $< -o en.docx
+	$(PAND)="References" $< -o en.docx
 	
 	# Generate `en.tex`
 	$(PANX) $< -o en.tex
 	# Compile LaTeX
 	
 	# Restore to the original status
-	$(SED) $<
+	$(PERL) 's/(<!--- )(.*)( -->)/\2/g' $<
 
 .SILENT:
 # Generate Chinese documents
 cn: main.md
 	# Comment all paragraphs
-	$(PERL) 's/(^.*\S)/<!-- \1 -->/g' $<
+	$(PERL) 's/(.*\S)/<!--- \1 -->/g' $<
 	
 	# Uncomment Chinese paragraphs
-	$(PERL) 's/<!-- (.*\p{Han}+.*) -->/\1/g' $<
-	
+	$(PERL) 's/<!--- (.*\p{Han}+.*) -->/\1/g' $<
+
+	# Uncomment paragraphs which contain Chinese character
+	# and the generic HTML comment symbol
+	$(PERL) 's/<!--- (.*\p{Han}+.*) -->/\1/g; \
+	s/(<!--- <!-- )(.*)( --> -->)/<!-- \2 -->/g' main.md
+
 	# Generate `cn.docx`
-	$(PAND) reference-section-title="参考文献" --bibliography ref.bib $< -o cn.docx
+	$(PAND)="参考文献" --bibliography ref.bib $< -o cn.docx
 	
 	# Generate `cn.tex`
 	$(PANX) $< -o cn.tex
 	# Compile LaTeX
 	
 	# Restore to the original status
-	$(SED) $<
+	$(PERL) 's/(<!--- )(.*)( -->)/\2/g' $<
 
 .PHONY: clean
 clean:
