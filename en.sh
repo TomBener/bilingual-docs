@@ -1,7 +1,5 @@
+#!/bin/zsh
 # Generate English documents
-
-# Remove potential `<!--- ` and ` -->`
-perl -CSD -Mutf8 -i -pe 's/(<!--- )(.*)( -->)/\2/g' main.md
 
 # Comment Chinese paragraphs
 perl -CSD -Mutf8 -i -pe 's/(.*\p{Han}+.*)/<!--- \1 -->/g' main.md

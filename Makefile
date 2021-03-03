@@ -47,7 +47,7 @@ cn: main.md
 	
 	# Uncomment Chinese paragraphs
 	$(PERL) 's/<!--- (.*\p{Han}+.*) -->/\1/g' $<
-
+	
 	# Uncomment paragraphs which contain Chinese character
 	# and the generic HTML comment symbol
 	$(PERL) 's/<!--- (.*\p{Han}+.*) -->/\1/g; \
@@ -58,7 +58,7 @@ cn: main.md
 	
 	# Generate `cn.tex`
 	$(PANX) $< -o cn.tex
-
+	
 	# Generate PDF via `en.tex` and `cn.tex`
 	
 	# Restore to the original status
@@ -66,4 +66,4 @@ cn: main.md
 
 .PHONY: clean
 clean:
-	rm *.docx *.tex 
+	rm *.docx *.tex
